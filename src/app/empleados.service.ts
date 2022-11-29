@@ -1,16 +1,31 @@
 import { Injectable } from "@angular/core";
+import { DataServices } from "./data.services";
 import { Empleado } from "./empleado.model";
 import { ServicioEmpleadosService } from "./servicio-empleados.service";
 
 @Injectable()
 export class EmpleadosService{
 
-    constructor(private servicioVentanaEmergente: ServicioEmpleadosService){
+    constructor(private servicioVentanaEmergente: ServicioEmpleadosService, private dataService:DataServices){
 
 
     }
 
-    empleados:Empleado[]=[
+    setEmpleados(misEmpleados:Empleado[]){
+
+      this.empleados=misEmpleados;
+      
+
+    }
+
+   obtenerEmpleados(){
+
+    return this.dataService.cargarEmpleados();
+   }
+
+   empleados:Empleado[]=[];
+
+    /*empleados:Empleado[]=[
 
         new Empleado("Juan","Díaz","Presidente",7500),
         new Empleado("Ana","martín","Directora",5500),
@@ -18,7 +33,7 @@ export class EmpleadosService{
         new Empleado("Laura","López","Administrativo",2500),
     
     
-      ];  
+      ];  */
 
       agregarEmpleadoServicio(empleado:Empleado){
 
@@ -26,6 +41,8 @@ export class EmpleadosService{
         empleado.nombre + "\n" + "Salario: " + empleado.salario);
 
         this.empleados.push(empleado); 
+
+        this.dataService.guardarEmpleados(this.empleados);
       }
 
       encontrarEmpleado(indice:number){
@@ -45,11 +62,17 @@ export class EmpleadosService{
         empleadoModificado.cargo=empleado.cargo;
         empleadoModificado.salario=empleado.salario;
 
+        this.dataService.actualizarEmpleados(indice,empleado);
+
       }
 
       eliminarEmpleado(indice:number){
 
         this.empleados.splice(indice,1);
+
+        this.dataService.eliminarEmpleados(indice);
+
+        if(this.empleados!=null)  this.dataService.guardarEmpleados(this.empleados);
 
 
       }
