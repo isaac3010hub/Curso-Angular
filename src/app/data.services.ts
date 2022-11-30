@@ -12,7 +12,7 @@ export class DataServices{
     cargarEmpleados(){
 
         const token=this.loginService.getIdToken();
-        return this.httpClient.get('https://mis-clientes-a5e64-default-rtdb.firebaseio.com/datos.json?auth=' + token);
+        return this.httpClient.get('https://misclientes-e83c2-default-rtdb.firebaseio.com/datos.json?auth=' + token);
       }
   
 
@@ -21,7 +21,7 @@ export class DataServices{
 
     guardarEmpleados(empleados:Empleado[]){
 
-        this.httpClient.post('https://mis-clientes-a5e64-default-rtdb.firebaseio.com/datos.json',empleados).subscribe(
+        this.httpClient.put('https://misclientes-e83c2-default-rtdb.firebaseio.com/datos.json',empleados).subscribe(
 
         Response=>console.log("Se ha guardado los empleados: " + Response),
 
@@ -35,7 +35,7 @@ export class DataServices{
 
     actualizarEmpleados(indice:number, empleado:Empleado){
 
-        let url='https://mis-clientes-a5e64-default-rtdb.firebaseio.com/datos/'+ indice + '.json';
+        let url='https://misclientes-e83c2-default-rtdb.firebaseio.com/datos/'+ indice + '.json';
 
         this.httpClient.post(url,empleado).subscribe(
 

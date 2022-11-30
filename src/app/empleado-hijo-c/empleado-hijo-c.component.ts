@@ -17,21 +17,21 @@ export class EmpleadoHijoCComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  empleados:Empleado[]=[
+  // empleados:Empleado[]=[
 
-    new Empleado("Juan","Díaz","Presidente",7500),
-    new Empleado("Ana","martín","Directora",5500),
-    new Empleado("María","Fdez","Jefa sección",3500),
-    new Empleado("Laura","López","Administrativo",2500),
+  //   new Empleado("Juan","Díaz","Presidente",7500),
+  //   new Empleado("Ana","martín","Directora",5500),
+  //   new Empleado("María","Fdez","Jefa sección",3500),
+  //   new Empleado("Laura","López","Administrativo",2500),
 
 
-  ];
+  // ];
 
-  empleadoAgregado(empleado:Empleado){
+  // empleadoAgregado(empleado:Empleado){
 
-    this.empleados.push(empleado);
+  //   this.empleados.push(empleado);
 
-  }
+  // }
 
   arrayCaracteristicas = [''];
 

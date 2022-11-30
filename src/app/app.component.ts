@@ -22,9 +22,9 @@ export class AppComponent implements OnInit {
     
     firebase.initializeApp({
 
-      apiKey: "AIzaSyB5OUA34P9TxEA4inNQR7AZ7hDbrQxJmsw",
+      apiKey: "AIzaSyDB0iNZLBqZvZiAUpdAGY6lk63zCUr3bys",
       
-      authDomain: "mis-clientes-a5e64.firebaseapp.com",
+      authDomain: "misclientes-e83c2.firebaseapp.com",
 
 
     });
